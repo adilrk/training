@@ -1,0 +1,6 @@
+---
+- hosts: servera.lab.example.com
+  remote_user: test
+  tasks:
+  - name: adding cron jon to list the directory
+    cron: name="list dirs" minute="0" hour="1" job="ls -alh /var/log > /home/test/cron.log"
