@@ -1,0 +1,13 @@
+---
+- hosts: serverb.lab.example.com
+  connection: ssh
+  become: yes
+  user: test
+  tasks:
+  - name: install apache server
+    yum: name=httpd state=latest
+    notify:
+    - service restart
+  handlers:
+  - name: service restart
+    service: name=httpd state=started

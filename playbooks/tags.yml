@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  user: test
+  gather_facts: no
+  tasks:
+  - name: install telnet and lynx package
+    yum: name=telnet,lynx state=latest
+    tags: packages
+  - name: verify package
+    raw: yum list installed | grep -e telnet -e lynx > /home/test/pkg.log
+    tags: logging

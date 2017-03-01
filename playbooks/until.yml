@@ -1,0 +1,11 @@
+---
+- hosts: servera.lab.example.com
+  become: true
+  user: test
+  gather_facts: no
+  tasks:
+  - name: install package
+    yum: name=httpd state=latest
+  - shell: systemctl status httpd
+  - debug: 
+

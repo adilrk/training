@@ -1,0 +1,15 @@
+---
+- hosts: servera.lab.example.com
+  become: yes
+  user: test
+  gather_facts: no
+  vars:
+    playbook_version: 1.0
+  vars_prompt:  
+  - name: package
+    prompt: install which package
+    default: telnet
+    private: no
+  tasks:  
+  - name: installing {{ package }}  
+    yum: name={{ package }} state=latest

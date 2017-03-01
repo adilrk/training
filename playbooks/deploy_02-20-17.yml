@@ -1,0 +1,16 @@
+- hosts: servera.lab.example.com
+  user: user
+  become: true
+  tasks:
+  - name: install lynx package
+    yum: name=lynx state=latest
+  - name: verify
+    yum: name=telnet state=installed
+- hosts: db_server
+  user: user
+  become: true
+  tasks:
+  - name: install telnet package
+    yum: name=telnet state=latest
+  - name: verification
+    yum: name=lynx state=installed

@@ -1,0 +1,12 @@
+---
+- hosts: servera.lab.example.com
+  remote_user: test
+  become: True
+  tasks:
+  - name: install apache web server
+    yum: name=httpd state=latest
+  - debug: msg="equivalent yum install command"  
+  - command: uptime
+    register: result
+  - debug: var=result  
+

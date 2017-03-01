@@ -1,0 +1,11 @@
+---
+- hosts: centos
+  connection: paramiko
+  remote_user: user
+  become: true
+  become_user: test
+  #become_ask_pass: False
+  #ansible_become_pass: Redhat
+  tasks:
+  - name: copy file
+    copy: src=/etc/ansible/ansible.cfg dest:=/tmp/

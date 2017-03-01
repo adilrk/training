@@ -1,0 +1,7 @@
+---
+- hosts: servera.lab.example.com
+  become: true
+  user: test
+  tasks:
+  - name: tar the log file
+    raw: tar -cvzf /tmp/http.tar.gz  /var/log/httpd

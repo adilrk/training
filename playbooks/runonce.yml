@@ -1,0 +1,12 @@
+---
+- hosts: all
+  connection: ssh
+  user: test
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: uptime comamnd
+    raw: uptime > /home/test/uptime.log
+  - name: ls comamnd
+    raw: ls -l /home/test/  > /home/test/ls.log
+    run_once: true

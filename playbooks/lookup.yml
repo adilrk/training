@@ -1,0 +1,6 @@
+---
+- hosts: servera.lab.example.com
+  become: true
+  user: test
+  tasks:
+  - debug: msg="{{ lookup('env','HOME') }} is value listed"

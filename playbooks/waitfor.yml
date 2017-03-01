@@ -1,0 +1,12 @@
+---
+- hosts: servera.lab.example.com
+  remote_user: test
+  become: true
+  gather_facts: no
+  tasks:
+  - name: install tomcat package
+    yum: name=tomcat state=latest
+  - name: wait for port 8080 open
+    wait_for: port=8080 delay=10
+  - name: lynx varification
+    yum: name=lynx state=installed

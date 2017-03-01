@@ -1,0 +1,10 @@
+---
+- hosts: servera.lab.example.com
+  connection: ssh
+  remote_user: test
+  become: yes
+  tasks:
+  - name: install telnet package
+    yum: name=telnet state=latest
+  - command: ping -c4 serverb.lab.example.com
+    delegate_to: workstation.lab.example.com

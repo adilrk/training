@@ -1,0 +1,13 @@
+---
+- hosts: servera.lab.example.com
+  remote_user: test
+  become: true
+  gather_facts: no
+  connection: ssh
+  tasks:
+  - name: install telnet package
+    yum: name=telnet state=latest
+  - name: install lynx
+    yum: name=lynx state=latest
+  - name: install httpd
+    yum: name=httpd state=latest
