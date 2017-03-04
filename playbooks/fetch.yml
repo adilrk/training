@@ -1,0 +1,7 @@
+---
+- hosts: servera.lab.example.com
+  remote_user: test
+  become: true
+  gather_facts: no
+  tasks:
+  - fetch: src=/etc/hosts dest=/tmp/prefix-{{ inventory_hostname }} flat=yes 
