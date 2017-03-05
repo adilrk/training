@@ -1,0 +1,8 @@
+[local]
+localhost
+[web_hosts]
+servera.lab.example.com
+[db_server]
+serverb.lab.example.com
+[centos]
+centos6.lab.example.com
