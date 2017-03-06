@@ -6,5 +6,5 @@
   - stat: path=/var/log/messages
     register: p
   - debug: var=p  
-  - debug: msg="Path exists and is a directory"
-    when: p.stat.isdir == 1
+  - debug: msg="Path exists"
+    when: p.stat.exists == 1

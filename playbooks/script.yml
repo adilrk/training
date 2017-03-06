@@ -1,0 +1,11 @@
+---
+- hosts: serverb.lab.example.com
+  remote_user: test
+  become: true
+  gather_facts: no
+  tasks:
+  - script: /home/user/myuptime.sh 
+    stat: /tmp/uptime.log
+    register: p
+    when: p.stat.exists == 1
+
