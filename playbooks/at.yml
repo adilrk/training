@@ -2,6 +2,5 @@
 - hosts: serverb.lab.example.com
   remote_user: test
   become: true
-  gather_facts: no
   tasks:
-  - script: /home/user/myuptime.sh creates=/tmp/utime.log
+  - at: command="ls -l /var/log  > /var/log/at1.log" count=1 units="minutes"

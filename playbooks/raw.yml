@@ -1,0 +1,7 @@
+---
+- hosts: servera.lab.example.com
+  remote_user:  test
+  become: true
+  tasks:
+  - name: excuting native command
+    raw: uptime > /tmp/uptime.log

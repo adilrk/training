@@ -1,0 +1,13 @@
+---
+- hosts: servera.lab.example.com
+  remote_user: test
+  become: true
+  tasks:
+  - name: install httpd
+    yum: name=httpd state=latest
+    register: htlog
+  - debug: var=htlog
+  - name: running uptime
+    shell: uptime
+    register: uptimelog
+  - debug:  var=uptimelog  
